@@ -1,0 +1,37 @@
+<header class="flex justify-between items-center py-3 w-full max-w-screen-lg mx-auto px-6">
+    <img src="https://github.com/SebastianMunozZ.png" class="rounded-full w-16 h-16" alt="Sebastian photo">
+    <nav class="flex gap-6">
+        <a href="/" class="hover:text-gray-500">Home</a>
+        <a href="/about" class="hover:text-gray-500">About</a>
+        <a href="/projects" class="hover:text-gray-500">Proyectos</a>
+        <a href="/contact" class="hover:text-gray-500">Contacto</a>
+
+        <button id="theme-toggle" class="p-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+            🌙
+        </button>
+    </nav>
+    
+</header>
+
+<script>
+    const themeToggle = document.getElementById("theme-toggle");
+    const htmlElement = document.body;
+
+    console.log(htmlElement)
+    if (localStorage.getItem("theme") === "dark") {
+        htmlElement.classList.add("dark");
+        themeToggle.textContent = "☀️"; 
+    }
+
+    themeToggle.addEventListener("click", () => {
+        if (htmlElement.classList.contains("dark")) {
+            htmlElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+            themeToggle.textContent = "🌙"; 
+        } else {
+            htmlElement.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+            themeToggle.textContent = "☀️"; 
+        }
+    });
+</script>
